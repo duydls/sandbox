@@ -44,3 +44,26 @@ Hello, [::1]:60094
 
 9. TODO: show "404 page not found" when they try a wrong URL
 
+# ex1.2 ....... goweb/Dockerfile
+1. dockhub login
+```
+docker login
+```
+2. build docker image
+```
+docker build -t duydls/goweb .
+```
+3. push docker image
+```
+docker push duydls/goweb
+```
+4. start docker image (with port forwarding 8080->localhost:80)
+```
+docker run -p 80:8080 duydls/goweb
+```
+5. http://localhost
+
+6. docker deamon permission issue & [solution](https://newbedev.com/got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket-at-unix-var-run-docker-sock-post-http-2fvar-2frun-2fdocker-sock-v1-24-auth-dial-unix-var-run-docker-sock-connect-permission-denied-code-example).
+```
+sudo chmod 666 /var/run/docker.sock
+``` 
